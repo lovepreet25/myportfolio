@@ -1,5 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import Header from "./Components/Header";
+import BioPage from "./Components/BioPage";
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <ChakraProvider>
     <main>
       <Header />
+      <BioPage />
     </main>
     </ChakraProvider>
     </>
