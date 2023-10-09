@@ -30,7 +30,7 @@ return(
     isDarkBackground
     backgroundColor="#2A4365"
   >
-<VStack spacing={4} alignItems="center">
+<VStack spacing={5} alignItems="center">
      <motion.div 
      initial="initial"
      animate={showSecondImage? "animate": "hover"}
@@ -39,7 +39,7 @@ return(
      whileTap= "hover"
     >
          <Avatar
-          size="xl"
+          size="2xl"
         name="Lovepreet Kaur"
         src= {showSecondImage? image2 : image1}
       />
