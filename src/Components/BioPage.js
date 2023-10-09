@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { Avatar, Heading, VStack } from "@chakra-ui/react";
 import FullScreenSection from "./FullScreenSection";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import image1 from "../Assests/IMG_3573.JPG";
 import image2 from "../Assests/IMG_3853.JPG";
 
@@ -12,8 +12,7 @@ const bio2 = "Specialised in Frontend Development(React)";
 const BioPage = () => {
     
     const [showSecondImage, setShowSecondImage] = useState(false);
-    const controls = useAnimation();
-
+  
     const avtarVariants = {
         initial:{opacity:1, scale:1},
         hover: {scale: 1.2 , transition:{duration:0.5}},

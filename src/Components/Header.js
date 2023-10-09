@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -7,6 +7,7 @@ import {
   faStackOverflow,
 } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack } from "@chakra-ui/react";
+
 
 const socials = [
   {
@@ -28,6 +29,8 @@ const socials = [
 ];
 
 const Header = () => {
+    const [isHidden, setIsHidden] = useState(false);
+  
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
@@ -38,15 +41,27 @@ const Header = () => {
       });
     }
   };
+    useEffect(() => {
+        let prevScrollY = window.scrollY;
+        const handleScroll = () => {
+          const currentScrollY = window.scrollY;
+          setIsHidden(currentScrollY > prevScrollY);
+          prevScrollY = currentScrollY;
+        };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+         window.removeEventListener("scroll", handleScroll);
+       };
+    }, []);
 
   return (
     <Box
       position="fixed"
-      top={0}
+      top={isHidden ? "-80px" : "0"}
       left={0}
       right={0}
-      translateY={0}
-      transitionProperty="transform"
+      transitionProperty="top"
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
       backgroundColor="#18181b"
@@ -72,10 +87,10 @@ const Header = () => {
           <nav>
             <HStack spacing={8}>
     
-                <a href="#projects" onClick={handleClick("projects")}>
+                <a href="#projects-section" onClick={handleClick("projects")}>
                     Projects
                 </a>
-                <a href="#contact" onClick={handleClick("contact")}>
+                <a href="#contact-section" onClick={handleClick("contact")}>
                     Contact
                 </a>
              
@@ -84,6 +99,7 @@ const Header = () => {
         </HStack>
       </Box>
     </Box>
+    
   );
 };
 export default Header;

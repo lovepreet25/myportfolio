@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { useFormik } from "formik";
 import {
   Box,
@@ -75,7 +75,7 @@ const Contact = () => {
       spacing={8}
     >
       <VStack w="1024px" p={32} alignItems="flex-start">
-        <Heading as="h1" id="contactme-section">
+        <Heading as="h1" id="contact-section">
           Contact me
         </Heading>
         <Box p={6} rounded="md" w="100%">
